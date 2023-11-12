@@ -11,9 +11,9 @@ const UserProfileButton: React.FC = () => {
 
     return (
         <UserButton
-        userProfileProps={{ appearance: clerkTheme }}
-        appearance={clerkTheme}
-        afterSignOutUrl="/"
+            userProfileProps={{ appearance: clerkTheme }}
+            appearance={clerkTheme}
+            afterSignOutUrl="/"
         />
     );
 };
