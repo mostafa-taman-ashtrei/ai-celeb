@@ -1,9 +1,8 @@
+import LandingNavbar from "@/components/navigation/LandingNavbar";
 
 const Home: React.FC = () => {
   return (
-    <h1 className="text-center text-lg">
-      Hello World
-    </h1>
+    <LandingNavbar />
   );
 };
 
