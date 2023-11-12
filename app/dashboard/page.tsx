@@ -1,10 +1,9 @@
-import DashboardNavbar from "@/components/navigation/DashboardNavbar";
 
 const Dashboard = () => {
     return (
-        <>
-            <DashboardNavbar />
-        </>
+        <p>
+            Hi there
+        </p>
     );
 };
 

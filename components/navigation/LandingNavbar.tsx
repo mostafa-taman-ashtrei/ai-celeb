@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import GradientText from "@/components/general/GradientText";
 import Link from "next/link";
 import { Montserrat } from "next/font/google";
+import ThemeTogglerButton from "./ThemeToggle";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@clerk/nextjs";
 
@@ -15,9 +16,8 @@ const LandingNavbar = () => {
     return (
         <nav className="p-4 bg-transparent flex items-baseline justify-between">
             <Link href="/" className="flex items-center">
-
                 <h1 className={cn("text-2xl font-bold", font.className)}>
-                    <GradientText text="A.I Celebrity" />
+                    <GradientText text="A.I Celeb" />
                 </h1>
             </Link>
 
@@ -42,6 +42,8 @@ const LandingNavbar = () => {
                         </Link>
                     </>
                 }
+
+                <ThemeTogglerButton />
             </div>
         </nav>
     );
