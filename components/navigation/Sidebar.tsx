@@ -15,14 +15,14 @@ const Sidebar = () => {
     const routes = [
         {
             icon: LayoutDashboardIcon,
-            href: "/",
+            href: "/dashboard",
             label: "Gallery",
             pro: false,
             color: "text-sky-500"
         },
         {
             icon: Plus,
-            href: "/companion/new",
+            href: "/dashboard/celeb/new",
             label: "Add",
             pro: true,
             color: "text-sky-500"
