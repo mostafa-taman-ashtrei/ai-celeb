@@ -1,4 +1,5 @@
 import Categories from "@/components/dashboard/Categories";
+import CelebCards from "./components/CelebCards";
 import Search from "@/components/dashboard/Search";
 import prismadb from "@/lib/prisma";
 
@@ -9,7 +10,14 @@ interface props {
     };
 };
 
-const Dashboard: React.FC<props> = async () => {
+const Dashboard: React.FC<props> = async ({ searchParams }) => {
+    const allCelebData = await prismadb.celeb.findMany({
+        where: {
+            categoryId: searchParams.categoryId,
+            name: { search: searchParams.name }
+        },
+        orderBy: { createdAt: "desc" }
+    });
 
     const categories = await prismadb.category.findMany();
 
@@ -17,6 +25,7 @@ const Dashboard: React.FC<props> = async () => {
         <div className="h-full p-4 space-y-2">
             <Search />
             <Categories data={categories} />
+            <CelebCards allCelebData={allCelebData} />
         </div>
     );
 };

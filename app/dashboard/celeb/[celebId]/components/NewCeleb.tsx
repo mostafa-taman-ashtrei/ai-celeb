@@ -14,8 +14,11 @@ import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 import { Wand2 } from "lucide-react";
+import axios from "axios";
 import { formSchema } from "./formSchema";
+import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 interface props {
@@ -24,6 +27,8 @@ interface props {
 }
 
 const NewCeleb: React.FC<props> = ({ initialData, categories }) => {
+    const router = useRouter();
+
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: initialData || {
@@ -38,8 +43,18 @@ const NewCeleb: React.FC<props> = ({ initialData, categories }) => {
 
     const isLoading = form.formState.isSubmitting;
 
-    const handleSubmit = (values: z.infer<typeof formSchema>) => {
-        console.log({ values });
+    const handleSubmit = async (values: z.infer<typeof formSchema>) => {
+        try {
+            if (initialData) await axios.patch(`/api/celeb/${initialData.id}`, values);
+            else await axios.post("/api/celeb", values);
+
+            toast.success(`${initialData ? "Updated Successfully" : "Celeb Created."}`);
+
+            router.refresh();
+            router.push("/dashboard");
+        } catch {
+            toast.error("Something went wrong ... try again later");
+        }
     };
 
     return (
@@ -192,6 +207,7 @@ const NewCeleb: React.FC<props> = ({ initialData, categories }) => {
                             size="lg"
                             variant="gradient"
                             disabled={isLoading}
+                            type="submit"
                         >
                             {
                                 isLoading

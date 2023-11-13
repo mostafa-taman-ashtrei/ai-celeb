@@ -32,8 +32,8 @@ const Categories: React.FC<props> = ({ data }) => {
             <button
                 onClick={() => handleClick(undefined)}
                 className={cn(
-                    `flex items-center text-center text-xs md:text-sm px-2 md:px-4 py-2 md:py-2  rounded-full bg-primary/10 hover:opacity-75 transition`,
-                    !categoryId ? "bg-sky-700" : "bg-primary/10"
+                    `flex items-center  text-center text-xs md:text-sm px-2 md:px-4 py-2 md:py-2  rounded-full bg-primary/10 hover:opacity-75 transition`,
+                    !categoryId ? "bg-sky-700 text-white" : "bg-primary/10"
                 )}
             >
                 Latest
@@ -43,8 +43,8 @@ const Categories: React.FC<props> = ({ data }) => {
                 <button
                     onClick={() => handleClick(item.id)}
                     className={cn(
-                        `flex items-center  text-center text-xs md:text-sm px-2 md:px-4 py-2 md:py-3 rounded-full bg-primary/10 hover:opacity-75 transition`,
-                        item.id === categoryId ? "bg-sky-700" : "bg-primary/10"
+                        `flex items-center   text-center text-xs md:text-sm px-2 md:px-4 py-2 md:py-3 rounded-full bg-primary/10 hover:opacity-75 transition`,
+                        item.id === categoryId ? "bg-sky-700 text-white" : "bg-primary/10"
                     )}
                     key={item.id}
                 >
