@@ -16,7 +16,10 @@ const Dashboard: React.FC<props> = async ({ searchParams }) => {
             categoryId: searchParams.categoryId,
             name: { search: searchParams.name }
         },
-        orderBy: { createdAt: "desc" }
+        orderBy: { createdAt: "desc" },
+        include: {
+            _count: { select: { messages: true } }
+        }
     });
 
     const categories = await prismadb.category.findMany();

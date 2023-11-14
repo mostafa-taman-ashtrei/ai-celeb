@@ -11,7 +11,6 @@ interface props {
 
 const CelebPage: React.FC<props> = async ({ params }) => {
     const { userId } = auth();
-
     if (!userId) return redirectToSignIn();
 
 

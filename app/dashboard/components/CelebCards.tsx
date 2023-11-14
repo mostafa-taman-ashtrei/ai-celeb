@@ -1,11 +1,14 @@
-import { Card, CardHeader } from "@/components/ui/card";
+import { Card, CardFooter, CardHeader } from "@/components/ui/card";
 
 import { Celeb } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
+import { MessageCircle } from "lucide-react";
 
 interface props {
-  allCelebData: Celeb[];
+  allCelebData: (Celeb & {
+    _count: { messages: number },
+  })[];
 }
 
 
@@ -27,12 +30,15 @@ const CelebCards: React.FC<props> = ({ allCelebData }) => {
   }
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 pb-10">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pb-10">
       {allCelebData.map((celeb) => (
-        <Card key={celeb.name} className="bg-primary/20   dark:bg-secondary rounded-xl  cursor-pointer hover:opacity-75 transition border-0">
+        <Card
+          key={celeb.name}
+          className="bg-primary/20 dark:bg-secondary rounded-2xl cursor-pointer hover:opacity-75 transition border-0"
+        >
           <Link href={`/chat/${celeb.id}`}>
             <CardHeader className="flex items-center justify-center text-center text-muted-foreground">
-              <div className="relative w-32 h-32">
+              <div className="relative w-40 h-40">
                 <Image
                   src={celeb.src}
                   fill
@@ -43,12 +49,18 @@ const CelebCards: React.FC<props> = ({ allCelebData }) => {
               <p className="font-bold text-black dark:text-white">
                 {celeb.name}
               </p>
-              <p className="text-sm text-black dark:text-white">
+              <p className="text-md text-black dark:text-white">
                 {celeb.description}
               </p>
-              <p className="text-xs lowercase">@{celeb.userName}</p>
             </CardHeader>
 
+            <CardFooter className=" flex items-center justify-between text-xs text-secondary-foreground ">
+              <p className="lowercase">@{celeb.userName}</p>
+              <div className="flex items-center">
+                <MessageCircle className="w-3 h-3 mr-1" />
+                {celeb._count.messages}
+              </div>
+            </CardFooter>
           </Link>
         </Card>
       ))}
