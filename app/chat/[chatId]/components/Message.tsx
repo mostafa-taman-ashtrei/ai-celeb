@@ -23,12 +23,12 @@ const Message: React.FC<props> = ({ role, content, isLoading, src }) => {
 
     return (
         <div className={cn(
-            "group flex items-start gap-x-3 py-4 w-full",
+            "group flex items-start gap-x-3 py-4 w-full animate-accordion-down",
             role === "user" && "justify-end"
         )}>
             {role !== "user" && src && <CelebAvatar src={src} />}
 
-            <div className="rounded-full px-4 py-2 max-w-sm text-sm bg-primary/10">
+            <div className="rounded-xl px-4 py-2 max-w-sm text-sm bg-gray-300 dark:bg-primary/10">
                 {isLoading
                     ? <MoreHorizontal className="animate-pulse" />
                     : content
@@ -40,7 +40,7 @@ const Message: React.FC<props> = ({ role, content, isLoading, src }) => {
             {role !== "user" && !isLoading && (
                 <Button
                     onClick={handleCopy}
-                    className="opacity-0 group-hover:opacity-100 transition"
+                    className="opacity-0 group-hover:opacity-100 transition rounded-full"
                     size="icon"
                     variant="ghost"
                 >

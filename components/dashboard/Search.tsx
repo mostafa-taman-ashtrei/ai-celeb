@@ -46,8 +46,7 @@ const Search: React.FC = () => {
                 onChange={onChange}
                 value={value}
                 placeholder="What are you looking for?"
-                className="pl-10 bg-primary/10"
-
+                className="pl-10 bg-primary/10 rounded-full"
             />
         </div>
     );

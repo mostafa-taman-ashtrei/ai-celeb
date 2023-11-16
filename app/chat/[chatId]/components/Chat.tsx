@@ -53,7 +53,7 @@ const Chat: React.FC<props> = ({ celebData }) => {
     };
 
     return (
-        <div className="flex flex-col h-full p-4 space-y-2">
+        <div className="flex flex-col h-full p-4 space-y-1">
             <Header celebData={celebData} />
 
             <ChatMessages

@@ -30,11 +30,11 @@ const CelebCards: React.FC<props> = ({ allCelebData }) => {
   }
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pb-10">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-2 pb-2">
       {allCelebData.map((celeb) => (
         <Card
           key={celeb.name}
-          className="bg-primary/20 dark:bg-secondary rounded-2xl cursor-pointer hover:opacity-75 transition border-0"
+          className="bg-primary/20 dark:bg-secondary rounded-xl cursor-pointer hover:opacity-75 transition border-0"
         >
           <Link href={`/chat/${celeb.id}`}>
             <CardHeader className="flex items-center justify-center text-center text-muted-foreground">
@@ -42,7 +42,7 @@ const CelebCards: React.FC<props> = ({ allCelebData }) => {
                 <Image
                   src={celeb.src}
                   fill
-                  className="rounded-xl object-cover"
+                  className="rounded-full object-cover"
                   alt="Character"
                 />
               </div>
@@ -54,11 +54,11 @@ const CelebCards: React.FC<props> = ({ allCelebData }) => {
               </p>
             </CardHeader>
 
-            <CardFooter className=" flex items-center justify-between text-xs text-secondary-foreground ">
+            <CardFooter className="flex items-center justify-between text-xs text-secondary-foreground ">
               <p className="lowercase">@{celeb.userName}</p>
               <div className="flex items-center">
-                <MessageCircle className="w-3 h-3 mr-1" />
                 {celeb._count.messages}
+                <MessageCircle className="w-3 h-3 ml-1" />
               </div>
             </CardFooter>
           </Link>

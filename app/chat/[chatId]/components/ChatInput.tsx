@@ -12,6 +12,7 @@ interface props {
     handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
     isLoading: boolean;
 }
+
 const ChatInput: React.FC<props> = ({ input, handleInputChange, handleSubmit, isLoading }) => {
     return (
         <form onSubmit={handleSubmit} className="border-t border-primary/10 py-4 flex items-center gap-x-2">
@@ -20,7 +21,7 @@ const ChatInput: React.FC<props> = ({ input, handleInputChange, handleSubmit, is
                 value={input}
                 onChange={handleInputChange}
                 placeholder="Say something to break the ice 🧊"
-                className="rounded-lg bg-primary/10"
+                className="rounded-full bg-primary/10"
             />
             <Button disabled={isLoading} className="rounded-full">
                 <SendHorizonal className="w-6 h-6" />
