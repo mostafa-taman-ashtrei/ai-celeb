@@ -6,6 +6,8 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 
 import { Button } from "@/components/ui/button";
 import CelebAvatar from "@/components/general/CelebAvatar";
+import axios from "axios";
+import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/nextjs";
 
@@ -19,7 +21,17 @@ const Header: React.FC<props> = ({ celebData }) => {
     const router = useRouter();
     const { user } = useUser();
 
-    const handleDelete = () => { };
+    const handleDelete = async () => {
+        try {
+            await axios.delete(`/api/celeb/${celebData.id}`);
+            toast.success(`${celebData.name} deleted successfully`);
+
+            router.refresh();
+            router.push("/dashboard");
+        } catch (error) {
+            toast.error("Something went wrong ... try again later");
+        }
+    };
 
     return (
         <div className="flex w-full justify-between items-center border-b border-primary/10 pb-4">
