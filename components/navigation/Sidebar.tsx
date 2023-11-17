@@ -1,6 +1,6 @@
 "use client";
 
-import { LayoutDashboardIcon, Plus, Settings, Sparkles } from "lucide-react";
+import { BotIcon, Cog, LayoutGridIcon, Sparkles } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 
 import { Button } from "../ui/button";
@@ -23,21 +23,21 @@ const Sidebar: React.FC<props> = ({ isProMember }) => {
 
     const routes = [
         {
-            icon: LayoutDashboardIcon,
+            icon: LayoutGridIcon,
             href: "/dashboard",
             label: "Gallery",
             isProRoute: false,
             color: "text-sky-500",
         },
         {
-            icon: Plus,
+            icon: BotIcon,
             href: "/dashboard/celeb/new",
-            label: "Add",
+            label: "Create A Bot",
             isProRoute: true,
             color: "text-sky-500"
         },
         {
-            icon: Settings,
+            icon: Cog,
             href: "/dashboard/settings",
             label: "Settings",
             isProRoute: false,
@@ -75,6 +75,8 @@ const Sidebar: React.FC<props> = ({ isProMember }) => {
                                 <route.icon className={cn("h-5 w-5 mr-3", route.color)} />
                                 {route.label}
                             </div>
+
+                            {route.isProRoute && <Sparkles className="h-5 w-5 text-sky-600" />}
                         </div>
                     ))}
                 </div>
