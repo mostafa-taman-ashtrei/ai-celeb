@@ -6,14 +6,17 @@ async function main() {
     try {
         await db.category.createMany({
             data: [
-                { name: "Famous People" },
-                { name: "Movies & TV" },
+                { name: "Athletes" },
+                { name: "Directors / Actors" },
                 { name: "Musicians" },
                 { name: "Philosophers" },
                 { name: "Scientists" },
                 { name: "Historical Figures" },
+                { name: "Fictional Characters" },
+                { name: "World Leaders" },
             ],
         });
+
     } catch (error) {
         // eslint-disable-next-line no-console
         console.log(error);
