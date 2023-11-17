@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { checkUserSubscription } from "@/lib/checkUserSubscription";
 import { currentUser } from "@clerk/nextjs";
 import prismadb from "@/lib/prisma";
 
@@ -10,6 +11,9 @@ export const POST = async (req: Request) => {
 
         if (!user || !user.id || !user.username) return new NextResponse("Unauthorized", { status: 401 });
         if (!src || !name || !description || !instructions || !seed || !categoryId) return new NextResponse("Missing required fields", { status: 400 });
+
+        const isProMember = await checkUserSubscription();
+        if (!isProMember) return new NextResponse("Pro subscription required", { status: 403 });
 
 
         const celeb = await prismadb.celeb.create({
