@@ -1,7 +1,7 @@
 "use client";
 
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "../ui/dialog";
-import { DollarSign, Sparkles } from "lucide-react";
+import { ShoppingBag, Sparkles } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { Button } from "../ui/button";
@@ -63,7 +63,7 @@ const SubscriptionModal = () => {
                         {
                             loading
                                 ? <>
-                                    <DollarSign className="animate-bounce" />
+                                    <ShoppingBag className="animate-bounce" />
                                     Checking Out
                                 </>
                                 : <>

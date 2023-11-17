@@ -81,14 +81,14 @@ const Sidebar: React.FC<props> = ({ isProMember }) => {
             </div>
 
             {
-                isProMember && <div className="p-3 w-full justify-around">
+                !isProMember && <div className="p-3 w-full justify-around">
                     <Button
                         variant="gradient"
-                        className="w-full flex flex-row gap-1 justify-center"
+                        className="w-full flex flex-row gap-3 justify-center"
                         onClick={openModal}
                     >
-                        <Sparkles />
                         Upgarde To Pro
+                        <Sparkles />
                     </Button>
                 </div>
             }
