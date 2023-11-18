@@ -23,12 +23,12 @@ const Message: React.FC<props> = ({ role, content, isLoading, src }) => {
 
     return (
         <div className={cn(
-            "group flex items-start gap-x-3 py-4 w-full animate-accordion-down",
+            "group flex items-baseline gap-x-3 py-4 w-full",
             role === "user" && "justify-end"
         )}>
             {role !== "user" && src && <CelebAvatar src={src} />}
 
-            <div className="rounded-xl px-4 py-2 max-w-sm text-sm bg-gray-300 dark:bg-primary/10">
+            <div className={`${role !== "user" ? "rounded-r-xl rounded-bl-xl" : "rounded-l-xl rounded-br-xl"} px-4 py-2 max-w-sm text-sm text-white bg-sky-600`}>
                 {isLoading
                     ? <MoreHorizontal className="animate-pulse" />
                     : content

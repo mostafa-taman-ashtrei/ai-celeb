@@ -23,8 +23,8 @@ const ChatInput: React.FC<props> = ({ input, handleInputChange, handleSubmit, is
                 placeholder="Say something to break the ice 🧊"
                 className="rounded-full bg-primary/10"
             />
-            <Button disabled={isLoading} className="rounded-full">
-                <SendHorizonal className="w-6 h-6" />
+            <Button disabled={isLoading} variant="ghost" size="icon" className="rounded-full">
+                <SendHorizonal className="w-6 h-6 text-sky-600" />
             </Button>
         </form>
     );
