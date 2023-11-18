@@ -10,12 +10,13 @@ const Pricing: React.FC = () => {
                     <GradientText text="Plans" />
                 </h2>
 
-                <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-2 m-4 mx-16">
+                <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-2 m-4">
                     <PricingBox
                         packageName="Free Forever"
                         price={"0"}
                         duration={"mo"}
                         subtitle="Enjoy the app without ever paying anything."
+                        buttonText="Start Now"
                     >
                         <PriceFeature text="Chat With Any bots" status="active" />
                         <PriceFeature text="Unlimited Chats" status="active" />
@@ -27,9 +28,10 @@ const Pricing: React.FC = () => {
 
                     <PricingBox
                         packageName="Basic"
-                        price={"399"}
+                        price={"7.99"}
                         duration={"mo"}
-                        subtitle="Lorem ipsum dolor sit amet adiscing elit Mauris egestas enim."
+                        subtitle="Unlock all the pro features for the low price $7.99/month."
+                        buttonText="Subscribe"
                     >
                         <PriceFeature text="Chat With Any bots" status="active" />
                         <PriceFeature text="Unlimited Chats" status="active" />

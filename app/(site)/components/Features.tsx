@@ -62,7 +62,7 @@ const Features: React.FC = () => {
             <div className="grid gap-2  lg:grid-cols-2">
                 {
                     features.map((feature) => (
-                        <div className="max-w-md rounded-xl sm:mx-auto sm:text-center cursor-pointer bg-gray-300 dark:bg-gray-900 p-4" key={feature.id}>
+                        <div className="max-w-md rounded-xl sm:mx-auto sm:text-center cursor-pointer bg-gray-300 dark:bg-gray-900 p-6 hover:text-sky-500" key={feature.id}>
                             <div className="flex flex-row justify-between mb-2">
                                 <div className="flex flex-row gap-2 items-center justify-center">
                                     {feature.icon}
