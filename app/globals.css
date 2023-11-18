@@ -84,3 +84,9 @@ body,
 .gradient-primary {
   --tw-gradient-stops: theme("colors.blue.800"), theme("colors.sky.500"), theme("colors.violet.700");
 }
+
+.feature {
+  background-color: theme("colors.gray.900");
+  padding: 2rem;
+  border-radius: 10px;
+}

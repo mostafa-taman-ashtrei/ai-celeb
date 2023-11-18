@@ -5,6 +5,7 @@ import GradientText from "@/components/general/GradientText";
 import Link from "next/link";
 import { Montserrat } from "next/font/google";
 import ThemeTogglerButton from "./ThemeToggle";
+import UserProfileButton from "./UserProfileButton";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@clerk/nextjs";
 
@@ -23,11 +24,7 @@ const LandingNavbar = () => {
 
             <div className="flex items-center gap-x-2">
                 {isSignedIn
-                    ? <Link href="/dashboard">
-                        <Button variant="secondary" className="rounded-full">
-                            Get Started
-                        </Button>
-                    </Link>
+                    ? <UserProfileButton />
                     : <>
                         <Link href="/sign-up">
                             <Button variant="secondary" className="rounded-full">
