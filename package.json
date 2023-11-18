@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint:fix": "next lint --fix"
+    "lint:fix": "next lint --fix",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.27.1",
@@ -29,6 +30,7 @@
     "axios": "^1.6.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "dotenv": "^16.3.1",
     "langchain": "^0.0.189",
     "lucide-react": "^0.292.0",
     "next": "14.0.2",
