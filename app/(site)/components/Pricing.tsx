@@ -17,6 +17,7 @@ const Pricing: React.FC = () => {
                         duration={"mo"}
                         subtitle="Enjoy the app without ever paying anything."
                         buttonText="Start Now"
+                        isPro={false}
                     >
                         <PriceFeature text="Chat With Any bots" status="active" />
                         <PriceFeature text="Unlimited Chats" status="active" />
@@ -27,11 +28,12 @@ const Pricing: React.FC = () => {
                     </PricingBox>
 
                     <PricingBox
-                        packageName="Basic"
+                        packageName="Pro"
                         price={"7.99"}
                         duration={"mo"}
                         subtitle="Unlock all the pro features for the low price $7.99/month."
                         buttonText="Subscribe"
+                        isPro={true}
                     >
                         <PriceFeature text="Chat With Any bots" status="active" />
                         <PriceFeature text="Unlimited Chats" status="active" />
